@@ -1,0 +1,36 @@
+server:
+  port: 8002
+#mybatis配置文件
+mybatis:
+  mapper-locations: classpath:mybatis/com.study.springcloud.mapper/*Mapper.xml
+  type-aliases-package: com.kuang.springcloud.com.study.springcloud.entity
+  config-location: classpath:mybatis/com.study.springcloud.mapper/mybatis-config.xml
+
+
+#spring配置文件
+spring:
+  application:
+    name: springcloud-provider-dept
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: org.gjt.mm.mysql.Driver
+    url: jdbc:mysql://localhost:3306/db01?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+
+# Eureka配置：配置服务注册中心地址
+eureka:
+  client:
+    service-url:
+      # 注册中心地址7001-7003
+      defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: springcloud-provider-dept-8002 #修改Eureka上的默认描述信息
+
+
+# info配置
+info:
+  # 项目的名称
+  app.name: jiaxiao-springcloud
+# 公司的名称
+  company.name: 岭师信息院

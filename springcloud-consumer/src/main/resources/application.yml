@@ -1,0 +1,11 @@
+server:
+  port: 8082
+
+# Eureka配置
+eureka:
+  client:
+#因为我们是服务消费者，不是提供者，如果是eureka服务端注册中心的话，需要配置fetch-registry: false
+  service-url: # 从三个注册中心中随机取一个去访问
+    defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  register-with-eureka: false # 默认为true，我们不向 Eureka注册自己，
+  fetch-registry: true
